@@ -1,11 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Login from './login'
+import Dashboard from './dashboard'
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/" component={Dashboard} />
         <Route path="/" component={Login} />
       </Switch>
     </BrowserRouter>
