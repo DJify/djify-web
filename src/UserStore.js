@@ -20,6 +20,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         id: action.userId,
+        token: action.token,
       }
 
     default:
