@@ -175,7 +175,12 @@ hr {
   width: inherit;
   display: flex;
   flex: 1;
-  background: linear-gradient(0deg,rgba(255,0,150,0.3),rgba(255,0,150,0.3)), url("./resources/img/dj-animations/background.gif");
+  background: linear-gradient(
+      0deg,
+      rgba(255, 0, 150, 0.3),
+      rgba(255, 0, 150, 0.3)
+    ),
+    url('./resources/img/dj-animations/background.gif');
   background-size: cover;
   background-position: center center;
   margin-bottom: -20px;
@@ -315,6 +320,7 @@ hr {
 }
 
 .btn-block {
+  text-align: center;
   display: block;
   width: 100%;
 }
