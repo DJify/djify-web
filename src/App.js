@@ -13,44 +13,15 @@ function App() {
     genre: '',
     backingImgURL: '',
     rooms: [],
-  });
+  })
 
   const onShowMoreListings = listings => {
     setMoreGenreListings(listings)
-  };
-
-  const initialUserState = {
-    id: '',
-    username: '',
-    wantsToDj: false,
-    chosenAvatarId: '',
-  }
-
-  const reducer = (state, action) => {
-    console.log(state, action)
-    switch (action.type) {
-      case 'updateUser':
-        return {
-          ...state,
-          wantsToDj: action.wantsToDj,
-          username: action.username,
-          chosenAvatarId: action.chosenAvatarId,
-        }
-
-      case 'logIn':
-        return {
-          ...state,
-          id: action.userId,
-        }
-
-      default:
-        return state
-    }
   }
 
   return (
     <BrowserRouter>
-      <StateProvider initialState={initialUserState} reducer={reducer}>
+      <StateProvider>
         <main>
           <Switch>
             <Route exact path="/" component={Login} />

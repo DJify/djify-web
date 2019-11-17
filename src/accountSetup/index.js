@@ -2,7 +2,7 @@ import React from 'react'
 import TextInput from '../components/TextInput'
 import Toggle from 'react-toggle'
 import 'react-toggle/style.css'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useUserState } from '../UserStore'
 
 const images = [
@@ -34,6 +34,15 @@ const Account = () => {
   const [chosenAvatarId, setChosenAvatarId] = React.useState(
     user.chosenAvatarId
   )
+
+  React.useEffect(() => {
+    setDj(user.wantsToDj)
+    setUsername(user.username)
+    setChosenAvatarId(user.chosenAvatarId)
+  }, [user])
+
+  const params = useParams()
+  const token = params['access_token']
 
   const onChange = e => {
     setUsername(e.target.value)
@@ -79,7 +88,7 @@ const Account = () => {
       <br />
       <label className="toggle-wrapper">
         <span>Do you want to be a DJ?</span>
-        <Toggle defaultChecked={dj} onChange={handleToggle} />
+        <Toggle checked={dj} onChange={handleToggle} />
       </label>
       <br />
       {username.length > 0 && (
