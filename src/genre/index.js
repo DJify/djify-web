@@ -6,9 +6,13 @@ import './styles.scss'
 
 const Genre = ({ genre, backingImgURL, rooms }) => (
   <section className="genre-page">
-    <Link to="/dashboard" className="back-button">
-      <BackIcon size={40} />
-    </Link>
+    <nav>
+      <div>
+        <Link to="/dashboard" className="back-button">
+          <BackIcon size={40} />
+        </Link>
+      </div>
+    </nav>
     <GenreCard
       genre={genre}
       backingImgURL={backingImgURL}

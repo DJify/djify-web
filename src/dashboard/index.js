@@ -108,19 +108,30 @@ const dummyData = [
   },
 ]
 
-const Dashboard = ({ onShowMoreListings }) => (
-  <section className="dashboard-page">
-    <Nav />
-    {dummyData.map(({ genre, backingImgURL, rooms }) => (
-      <GenreCard
-        key={genre}
-        genre={genre}
-        backingImgURL={backingImgURL}
-        rooms={rooms}
-        onShowMoreListings={onShowMoreListings}
-      />
-    ))}
-  </section>
-)
+const Dashboard = ({ onShowMoreListings }) => {
+  const [filteredData, setFilteredData] = React.useState(dummyData)
+
+  const onSearch = searchBy => {
+    const filtered = dummyData.filter(item =>
+      item.genre.toLowerCase().includes(searchBy.toLowerCase())
+    )
+    setFilteredData(filtered)
+  }
+
+  return (
+    <section className="dashboard-page">
+      <Nav onSearch={onSearch} />
+      {filteredData.map(({ genre, backingImgURL, rooms }) => (
+        <GenreCard
+          key={genre}
+          genre={genre}
+          backingImgURL={backingImgURL}
+          rooms={rooms}
+          onShowMoreListings={onShowMoreListings}
+        />
+      ))}
+    </section>
+  )
+}
 
 export default Dashboard
