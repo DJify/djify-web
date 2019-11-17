@@ -87,6 +87,38 @@ button:hover {
   flex-direction: row;
   justify-content: space-between; }
 
+#room {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100%; }
+
+#party {
+  width: inherit;
+  display: flex;
+  flex: 1;
+  background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url("./resources/img/dj-animations/background.gif");
+  background-size: cover;
+  background-position: center center; }
+  @media (min-width: 992px) {
+    #party {
+      min-height: 300px; } }
+
+.party-dj-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; }
+
+.party-booth {
+  width: 300px;
+  margin-top: -250px;
+  z-index: 1; }
+
+.party-dj {
+  margin-left: -20px;
+  height: 110px; }
+
 .color-neutral {
   color: #cecece; }
 

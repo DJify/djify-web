@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PartyAnimation from "./PartyAnimation";
 
-class Room extends React {
+const fakeUser = {
+  username: "DJ Khalid",
+  avatar: 3,
+};
+
+class Room extends Component {
   render() {
     return(
-      <div>
-        <img
-          className="room"
-          src={require('../resources/img/dj-animations/background.gif')}
-          alt="background" />
+      <div id="room">
+        <PartyAnimation user={fakeUser}/>
+        <h1>Hllo</h1>
       </div>
     )
   }
 }
+
+export default Room;
