@@ -5,8 +5,7 @@ import JudgeDisplay from "./JudgeDisplay";
 import QueueDisplay from "./QueueDisplay";
 import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
-import DraggableList from "react-draggable-list";
-import Modal from "react-modal";
+import {Link} from "react-router-dom";
 
 const fakeUser = {
   username: "Khalid",
@@ -55,8 +54,11 @@ class Room extends Component {
   render() {
     return(
       <div id="room">
-        <button className="float-button">
-          Back
+        <button
+            className="float-btn link-btn">
+          <Link to="/dashboard">
+            Back
+          </Link>
         </button>
         <PartyAnimation user={fakeUser}/>
         <div id="room-controls" className="center">
