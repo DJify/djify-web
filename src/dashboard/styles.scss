@@ -7,6 +7,7 @@
     display: flex;
     align-items: center;
 
+    a,
     button {
       padding: 0;
       background: none;
@@ -33,6 +34,7 @@
   }
 
   section.card {
+    position: relative;
     max-width: 500px;
     margin: auto;
     margin-bottom: 30px;
@@ -51,7 +53,7 @@
 
       h2 {
         color: white;
-        z-index: 1;
+        z-index: 0;
         margin: 15px;
         font-size: 36px;
       }
@@ -59,7 +61,6 @@
 
     .backing::before {
       content: '';
-      z-index: 0;
       position: absolute;
       height: 75px;
       left: 0;
