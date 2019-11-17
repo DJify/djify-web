@@ -1,12 +1,14 @@
-import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Login from './login'
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Login from './login';
+import Account from './accountSetup';
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={Login} />
+        <Route exact path="/" component={Login} />
+        <Route path="/account" component={Account} />
       </Switch>
     </BrowserRouter>
   )

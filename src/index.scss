@@ -1,5 +1,9 @@
 $primary: #7C89FF;
 $spotify-green: #1db954;
+$neutral-light: #E5E5E5;
+$neutral: #CECECE;
+$border-radius: 10px;
+
 // Small tablets and large smartphones (landscape view)
 $screen-sm-min: 576px;
 // Small tablets (portrait view)
@@ -102,15 +106,33 @@ button:hover {
 
 .disclaimer {
   opacity: 0.8;
+  font-size: 0.8rem;
   font-weight: lighter;
   max-width: 80%;
-  @include lg {
-    width: 300px;
+  @include md {
+    width: 250px;
   }
 }
 
 .spotify-btn {
   background-color: $spotify-green;
+}
+
+//Account
+
+#account {
+  width: calc(100% - 20px);
+  margin-top: 10vh;
+  background-color: white;
+  border-radius: $border-radius;
+  padding: 6px 12px;
+  @include md {
+    width: 580px;
+  }
+}
+
+.floating-input {
+  font-weight: 900;
 }
 
 //Utility
