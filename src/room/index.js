@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PartyAnimation from "./PartyAnimation";
 import SongDisplay from "./SongDisplay";
+import JudgeDisplay from "./JudgeDisplay";
 
 const fakeUser = {
   username: "Khalid",
@@ -34,7 +35,7 @@ class Room extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDj: true,
+      isDj: false,
       isCurrent: false,
     };
   }
@@ -47,6 +48,11 @@ class Room extends Component {
           <SongDisplay
             song={fakeSong}
             isDj={this.state.isDj}/>
+          {
+            !this.state.isDj &&
+            <JudgeDisplay
+              dj={fakeUser}/>
+          }
         </div>
       </div>
     )
