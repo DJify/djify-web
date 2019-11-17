@@ -35,7 +35,7 @@ const Input = styled.input`
   margin: 0;
   border: none;
   outline: none;
-  font-size: 1.7em;
+  font-size: 1.5em;
   font-weight: 900;
   &::placeholder {
     color: #9b9b9b;

@@ -15,6 +15,6 @@ const Nav = () => (
       <AddIcon size={40} />
     </button>
   </nav>
-)
+);
 
 export default Nav
