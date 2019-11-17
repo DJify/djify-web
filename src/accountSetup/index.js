@@ -2,7 +2,7 @@ import React from 'react'
 import TextInput from '../components/TextInput'
 import Toggle from 'react-toggle'
 import 'react-toggle/style.css'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useUserState } from '../UserStore'
 
 const images = [
@@ -29,6 +29,7 @@ const animations = [
 
 const Account = () => {
   const [user, dispatch] = useUserState()
+  const location = useLocation()
   const [username, setUsername] = React.useState(user.username)
   const [dj, setDj] = React.useState(user.wantsToDj)
   const [chosenAvatarId, setChosenAvatarId] = React.useState(
@@ -41,8 +42,14 @@ const Account = () => {
     setChosenAvatarId(user.chosenAvatarId)
   }, [user])
 
-  const params = useParams()
-  const token = params['access_token']
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search)
+    dispatch({
+      type: 'logIn',
+      userId: params.get('spotify_user_id'),
+      token: params.get('access_token'),
+    })
+  }, [location, dispatch])
 
   const onChange = e => {
     setUsername(e.target.value)
