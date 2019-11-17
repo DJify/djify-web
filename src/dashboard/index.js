@@ -1,5 +1,6 @@
 import React from 'react'
 import GenreCard from './GenreCard'
+import Nav from './Nav'
 import './styles.scss'
 
 const dummyData = [
@@ -55,6 +56,7 @@ const dummyData = [
 
 const Dashboard = ({}) => (
   <section className="dashboard-page">
+    <Nav />
     {dummyData.map(data => (
       <GenreCard
         genre={data.genre}
