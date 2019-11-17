@@ -44,9 +44,36 @@ button:hover {
   background: linear-gradient(180deg, rgba(1, 1, 27, 0.1), #01011B); }
 
 .login-body {
-  color: white; }
+  color: white;
+  text-align: center; }
+
+.disclaimer {
+  opacity: 0.8;
+  font-size: 0.8rem;
+  font-weight: lighter;
+  max-width: 80%; }
+  @media (min-width: 768px) {
+    .disclaimer {
+      width: 250px; } }
 
 .spotify-btn {
   background-color: #1db954; }
+
+#account {
+  width: calc(100% - 20px);
+  margin-top: 10vh;
+  background-color: white;
+  border-radius: 10px;
+  padding: 6px 12px; }
+  @media (min-width: 768px) {
+    #account {
+      width: 580px; } }
+
+.floating-input {
+  font-weight: 900; }
+
+.center {
+  margin-right: auto;
+  margin-left: auto; }
 
 /*# sourceMappingURL=index.css.map */
