@@ -5,15 +5,17 @@ const Login = () => (
     <div className="login-hero-wrapper">
       <img
         className="login-hero"
-        src={require("../resources/img/rockin-out.gif")}
-        alt="DANCE DANCE"/>
-      <div className="login-hero-overlay"/>
+        src={require('../resources/img/rockin-out.gif')}
+        alt="DANCE DANCE"
+      />
+      <div className="login-hero-overlay" />
     </div>
     <div className="login-body">
       <img
         className="center"
-        src={require("../resources/img/icons/dj-general-icon.png")}
-        alt="DJ Silhouette" />
+        src={require('../resources/img/icons/dj-general-icon.png')}
+        alt="DJ Silhouette"
+      />
       <div style={{ marginTop: 20 }}>
         <button
           className="spotify-btn center"
@@ -26,8 +28,9 @@ const Login = () => (
         >
           <img
             style={{ height: 20, width: 20, marginRight: 8 }}
-            src={require("../resources/img/icons/spoofy-logo.png")}
-            alt="Spotify logo" />
+            src={require('../resources/img/icons/spoofy-logo.png')}
+            alt="Spotify logo"
+          />
           Connect with Spotify
         </button>
         <p className="disclaimer center">
@@ -36,6 +39,6 @@ const Login = () => (
       </div>
     </div>
   </div>
-);
+)
 
 export default Login
