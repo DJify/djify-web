@@ -15,7 +15,11 @@ const Login = () => (
         src={require("../resources/img/icons/dj-general-icon.png")}
         alt="DJ Silhouette" />
       <div style={{ marginTop: 20 }}>
-        <button className="spotify-btn center">
+        <button className="spotify-btn center" onClick={() => {
+          window.location = window.location.href.includes('localhost')
+          ? 'http://localhost:8888/login'
+          : 'https://djify-backend.herokuapp.com/login'
+        }}>
           <img
             style={{ height: 20, width: 20, marginRight: 8 }}
             src={require("../resources/img/icons/spoofy-logo.png")}
@@ -23,7 +27,7 @@ const Login = () => (
           Connect with Spotify
         </button>
         <p className="disclaimer center">
-          Use your spotify account to access songs to play and listen.
+          Use your Spotify account to access songs to play and listen.
         </p>
       </div>
     </div>
