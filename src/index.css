@@ -105,6 +105,11 @@ hr {
   width: 100vw;
   height: 100vh; }
 
+.float-button {
+  position: absolute;
+  top: 20px;
+  left: 20px; }
+
 #party {
   width: inherit;
   display: flex;
@@ -115,7 +120,8 @@ hr {
   margin-bottom: -20px; }
   @media (min-width: 768px) {
     #party {
-      min-height: 200px; } }
+      min-height: 200px;
+      max-height: 600px; } }
 
 .party-dj-name {
   color: white;
@@ -155,7 +161,7 @@ hr {
 #room-controls {
   display: flex;
   flex-direction: column;
-  flex: 0;
+  flex: 1;
   background-color: white;
   padding: 6px 12px 16px 12px;
   width: 100%;
@@ -257,6 +263,7 @@ hr {
   margin-left: auto; }
 
 .btn-block {
+  text-align: center;
   display: block;
   width: 100%; }
 

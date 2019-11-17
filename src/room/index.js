@@ -55,6 +55,9 @@ class Room extends Component {
   render() {
     return(
       <div id="room">
+        <button className="float-button">
+          Back
+        </button>
         <PartyAnimation user={fakeUser}/>
         <div id="room-controls" className="center">
           {
