@@ -1,72 +1,43 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const S = {
-  Container: styled.section`
-    display: flex;
-    flex-direction: column;
-    background: var(--bg-gradient);
-    align-items: center;
-    justify-content: space-around;
-    color: white;
-    text-align: center;
-
-    height: 100vh;
-
-    > div {
-      display: inherit;
-      flex-direction: inherit;
-      align-items: inherit;
-    }
-
-    h1 {
-      margin-bottom: 0;
-      font-weight: 500;
-    }
-
-    p {
-      font-size: 12px;
-      color: #ddd;
-      padding: 0 75px;
-    }
-  `,
-  SpoofyButton: styled.button`
-    background: var(--spotify-green);
-    color: white;
-    display: flex;
-    align-items: center;
-
-    > img {
-      width: 25px;
-      height: 25px;
-      margin-right: 1rem;
-    }
-  `,
-  RockinOutImg: styled.img`
-    width: 100%;
-    max-width: 750px;
-    height: auto;
-  `,
-}
 
 const Login = () => (
-  <S.Container>
-    <S.RockinOutImg src="/rockin-out.gif" alt="DANCE DANCE" />
-    <div>
-      <img src="/icons/dj-general-icon.png" alt="DJ Silhouette" />
-      <h1>
-        <strong>DJ</strong>ify
-      </h1>
-      <p>Never listen to shit music again</p>
+  <div>
+    <div className="login-hero-wrapper">
+      <img
+        className="login-hero"
+        src={require('../resources/img/rockin-out.gif')}
+        alt="DANCE DANCE"
+      />
+      <div className="login-hero-overlay" />
     </div>
-    <div>
-      <S.SpoofyButton>
-        <img src="/icons/spoofy-logo.png" alt="Spotify logo" />
-        Connect with Spotify
-      </S.SpoofyButton>
-      <p>Use your spotify account to access songs to play and listen.</p>
+    <div className="login-body">
+      <img
+        className="center"
+        src={require('../resources/img/icons/dj-general-icon.png')}
+        alt="DJ Silhouette"
+      />
+      <div style={{ marginTop: 20 }}>
+        <button
+          className="spotify-btn center"
+          onClick={() => {
+            window.location = window.location.href.includes('localhost')
+              ? 'http://localhost:8888/login'
+              : 'https://djify-backend.herokuapp.com/login'
+          }}
+        >
+          <img
+            style={{ height: 20, width: 20, marginRight: 8 }}
+            src={require('../resources/img/icons/spoofy-logo.png')}
+            alt="Spotify logo"
+          />
+          Connect with Spotify
+        </button>
+        <p className="disclaimer center">
+          Use your Spotify account to access songs to play and listen.
+        </p>
+      </div>
     </div>
-  </S.Container>
+  </div>
 )
 
 export default Login
