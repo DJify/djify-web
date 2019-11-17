@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Login = () => (
-  <div style={{height: '100%'}}>
+  <div>
     <div className="login-hero-wrapper">
       <img
         className="login-hero"
@@ -28,6 +28,6 @@ const Login = () => (
       </div>
     </div>
   </div>
-)
+);
 
 export default Login
