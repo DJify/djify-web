@@ -12,11 +12,11 @@ function App() {
     genre: '',
     backingImgURL: '',
     rooms: [],
-  })
+  });
 
   const onShowMoreListings = listings => {
     setMoreGenreListings(listings)
-  }
+  };
 
   return (
     <BrowserRouter>

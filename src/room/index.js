@@ -5,6 +5,8 @@ import JudgeDisplay from "./JudgeDisplay";
 import QueueDisplay from "./QueueDisplay";
 import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
+import DraggableList from "react-draggable-list";
+import Modal from "react-modal";
 
 const fakeUser = {
   username: "Khalid",

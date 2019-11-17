@@ -316,6 +316,25 @@ hr {
   text-align: center;
 }
 
+.list {
+  max-height: 500px;
+  overflow-y: scroll;
+  width: 100%;
+  @include lg {
+    width: 400px;
+  }
+}
+
+.search-result {
+  width: 100%;
+  padding: 6px 0;
+  border-top: solid 1px $neutral-light;
+  cursor: pointer;
+  &:hover {
+    background-color: $neutral-light;
+  }
+}
+
 //Utility
 .color-neutral {
   color: $neutral;

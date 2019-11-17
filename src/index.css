@@ -6,12 +6,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+body.no-scroll {
+  overflow-y: hidden; }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
 
 * {
   box-sizing: border-box; }
 
+a,
 button {
   font-size: 16px;
   border: none;
@@ -22,7 +26,8 @@ button {
   text-transform: uppercase;
   transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  text-decoration: none; }
 
 button:hover {
   transform: translateY(-5px);
@@ -221,6 +226,22 @@ hr {
 .amount-label {
   font-size: 1.3rem;
   text-align: center; }
+
+.list {
+  max-height: 500px;
+  overflow-y: scroll;
+  width: 100%; }
+  @media (min-width: 992px) {
+    .list {
+      width: 400px; } }
+
+.search-result {
+  width: 100%;
+  padding: 6px 0;
+  border-top: solid 1px #e5e5e5;
+  cursor: pointer; }
+  .search-result:hover {
+    background-color: #e5e5e5; }
 
 .color-neutral {
   color: #cecece; }
