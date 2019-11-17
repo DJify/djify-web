@@ -11,7 +11,7 @@ class Room extends Component {
     return(
       <div id="room">
         <PartyAnimation user={fakeUser}/>
-        <h1>Hllo</h1>
+        <h1>Hello</h1>
       </div>
     )
   }
