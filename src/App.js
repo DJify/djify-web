@@ -1,17 +1,19 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import Login from './login'
 import Dashboard from './dashboard'
 import Account from './accountSetup'
+import AddRoom from './addRoom'
 
 function App() {
   return (
     <BrowserRouter>
-      <Switch>
+      <main>
         <Route exact path="/" component={Login} />
         <Route path="/account" component={Account} />
         <Route path="/dashboard" component={Dashboard} />
-      </Switch>
+        <Route path="/dashboard/addRoom" component={AddRoom} />
+      </main>
     </BrowserRouter>
   )
 }

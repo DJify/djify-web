@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaUserCircle as ProfileIcon } from 'react-icons/fa'
 import { IoIosAdd as AddIcon } from 'react-icons/io'
+import { Link } from 'react-router-dom'
 import TextInput from '../components/TextInput'
 
 const Nav = () => (
@@ -11,9 +12,9 @@ const Nav = () => (
     <div className="genre-search-container">
       <TextInput id="search_genre" label="Search" />
     </div>
-    <button>
+    <Link to="/dashboard/addRoom">
       <AddIcon size={40} />
-    </button>
+    </Link>
   </nav>
 )
 
