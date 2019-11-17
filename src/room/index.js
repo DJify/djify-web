@@ -11,6 +11,7 @@ const fakeSong = {
   album: "Starboy",
   title: "The Weekend",
   artist: "Starboy",
+  albumImg: "http://i.imgur.com/mjqJhdD.jpg"
 };
 
 const fakeQueue = [
@@ -43,7 +44,9 @@ class Room extends Component {
       <div id="room">
         <PartyAnimation user={fakeUser}/>
         <div id="room-controls" className="center">
-          <SongDisplay isDj={this.state.isDj}/>
+          <SongDisplay
+            song={fakeSong}
+            isDj={this.state.isDj}/>
         </div>
       </div>
     )

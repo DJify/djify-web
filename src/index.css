@@ -142,6 +142,43 @@ button:hover {
       width: 580px;
       margin-bottom: 30px; } }
 
+.song {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row; }
+
+.song-album-cover {
+  height: 120px;
+  width: 120px;
+  margin-right: 12px; }
+
+.song-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1; }
+  .song-content .song-title-label {
+    font-weight: bold;
+    font-size: 1.3rem; }
+  .song-content .song-artist-label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem; }
+  .song-content .song-album-label {
+    color: #cecece;
+    margin-bottom: 1rem; }
+  .song-content .song-playing-label {
+    color: #7c89ff; }
+
+.song-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .song-actions button {
+    padding: 0;
+    color: #cecece;
+    background: transparent; }
+
 .color-neutral {
   color: #cecece; }
 
