@@ -1,5 +1,5 @@
 import React from 'react'
-import GenreCard from '../components/Genre'
+import GenreCard from './GenreCard'
 import Nav from './Nav'
 import './styles.scss'
 
@@ -26,64 +26,10 @@ const dummyData = [
         djList: ['DJ Howey'],
         listenerCount: 21,
       },
-      {
-        imgURL: '/example-media/album-cover.jpg',
-        name: 'Party Room',
-        djList: ['DJ Howey'],
-        listenerCount: 21,
-      },
-      {
-        imgURL: '/example-media/album-cover.jpg',
-        name: 'Party Room',
-        djList: ['DJ Howey'],
-        listenerCount: 21,
-      },
-      {
-        imgURL: '/example-media/album-cover.jpg',
-        name: 'Party Room',
-        djList: ['DJ Howey'],
-        listenerCount: 21,
-      },
-      {
-        imgURL: '/example-media/album-cover.jpg',
-        name: 'Party Room',
-        djList: ['DJ Howey'],
-        listenerCount: 21,
-      },
-      {
-        imgURL: '/example-media/album-cover.jpg',
-        name: 'Party Room',
-        djList: ['DJ Howey'],
-        listenerCount: 21,
-      },
-      {
-        imgURL: '/example-media/album-cover.jpg',
-        name: 'Party Room',
-        djList: ['DJ Howey'],
-        listenerCount: 21,
-      },
-      {
-        imgURL: '/example-media/album-cover.jpg',
-        name: 'Party Room',
-        djList: ['DJ Howey'],
-        listenerCount: 21,
-      },
-      {
-        imgURL: '/example-media/album-cover.jpg',
-        name: 'Party Room',
-        djList: ['DJ Howey'],
-        listenerCount: 21,
-      },
-      {
-        imgURL: '/example-media/album-cover.jpg',
-        name: 'Party Room',
-        djList: ['DJ Howey'],
-        listenerCount: 21,
-      },
     ],
   },
   {
-    genre: 'Lofi',
+    genre: 'Lofi House',
     backingImgURL: '/example-media/concert-strobe.gif',
     rooms: [
       {
@@ -108,16 +54,14 @@ const dummyData = [
   },
 ]
 
-const Dashboard = ({ onShowMoreListings }) => (
+const Dashboard = (_) => (
   <section className="dashboard-page">
     <Nav />
-    {dummyData.map(({ genre, backingImgURL, rooms }) => (
+    {dummyData.map(data => (
       <GenreCard
-        key={genre}
-        genre={genre}
-        backingImgURL={backingImgURL}
-        rooms={rooms}
-        onShowMoreListings={onShowMoreListings}
+        genre={data.genre}
+        backingImgURL={data.backingImgURL}
+        rooms={data.rooms}
       />
     ))}
   </section>

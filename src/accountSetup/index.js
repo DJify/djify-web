@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import TextInput from '../components/TextInput'
-import Toggle from 'react-toggle'
-import 'react-toggle/style.css'
+import React, { Component } from 'react';
+import TextInput from '../components/TextInput';
+import Toggle from 'react-toggle';
+import "react-toggle/style.css";
 
 const images = [
   require('../resources/img/avatar/WhiteMale.png'),
@@ -12,7 +12,7 @@ const images = [
   require('../resources/img/avatar/TanFemale.png'),
   require('../resources/img/avatar/BrownFemale.png'),
   require('../resources/img/avatar/BlackFemale.png'),
-]
+];
 
 const animations = [
   require('../resources/img/dj-animations/DJ White Male.gif'),
@@ -23,25 +23,26 @@ const animations = [
   require('../resources/img/dj-animations/DJ Tan Female.gif'),
   require('../resources/img/dj-animations/DJ Brown Female.gif'),
   require('../resources/img/dj-animations/DJ Black Female.gif'),
-]
+];
 
 class Account extends Component {
+
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       username: '',
       selected: 0,
-      dj: true,
+      dj: true
     }
   }
 
-  _onChange = e => {
-    this.setState({ username: e.target.value })
-  }
+  _onChange = (e) => {
+    this.setState({username: e.target.value});
+  };
 
-  _handleToggle = e => {
-    this.setState({ dj: e.target.checked })
-  }
+  _handleToggle = (e) => {
+    this.setState({dj: e.target.checked});
+  };
 
   render() {
     return (
@@ -55,34 +56,37 @@ class Account extends Component {
         <br />
         <label>Select an avatar</label>
         <div className="avatar-row center">
-          {images.map((item, index) => (
-            <img
-              onClick={() => this.setState({ selected: index })}
-              src={this.state.selected === index ? animations[index] : item}
-              style={{
-                height: this.state.selected === index ? 120 : 110,
-              }}
-              className="avatar"
-              key={index}
-              alt={index}
-            />
-          ))}
+          {
+            images.map((item, index) =>
+              <img
+                onClick={() => this.setState({selected: index})}
+                src={this.state.selected === index ? animations[index] : item}
+                style={{
+                  height: this.state.selected === index ? 120 : 110,
+                }}
+                className="avatar"
+                key={index}
+                alt={index} />
+            )
+          }
         </div>
         <br />
         <label className="toggle-wrapper">
           <span>Do you want to be a DJ?</span>
           <Toggle
             defaultChecked={this.state.dj}
-            onChange={this._handleToggle}
-          />
+            onChange={this._handleToggle} />
         </label>
         <br />
-        {this.state.username.length > 0 && (
-          <button className="btn-block">Start listening</button>
-        )}
+        {
+          this.state.username.length > 0 &&
+          <button className="btn-block">
+            Start listening
+          </button>
+        }
       </div>
     )
   }
 }
 
-export default Account
+export default Account;
