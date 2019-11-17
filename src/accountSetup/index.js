@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
-import TextInput from '../components/TextInput';
+import React, { Component } from 'react'
+import TextInput from '../components/TextInput'
 
 class Account extends Component {
-
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      username: ''
+      username: '',
     }
   }
 
-  _onChange = (e) => {
-    this.setState({value: e.target.value})
-  };
+  _onChange = e => {
+    this.setState({ value: e.target.value })
+  }
 
   render() {
     return (
@@ -28,4 +27,4 @@ class Account extends Component {
   }
 }
 
-export default Account;
+export default Account
