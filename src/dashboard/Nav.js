@@ -1,13 +1,16 @@
 import React from 'react'
 import { FaUserCircle as ProfileIcon } from 'react-icons/fa'
 import { IoIosAdd as AddIcon } from 'react-icons/io'
+import TextInput from '../components/TextInput'
 
-const Nav = ({}) => (
+const Nav = () => (
   <nav>
-    <button className="profile-button">
+    <button>
       <ProfileIcon size={40} />
     </button>
-    <input placeholder="Search" />
+    <div className="genre-search-container">
+      <TextInput id="search_genre" label="Search" />
+    </div>
     <button>
       <AddIcon size={40} />
     </button>

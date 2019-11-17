@@ -2,26 +2,33 @@
   padding: 0 15px;
 
   nav {
-    margin: 30px 0;
+    margin: 30px auto;
+    max-width: 800px;
     display: flex;
     align-items: center;
 
     button {
       padding: 0;
-      color: white;
-    }
-
-    input {
-      flex: 1;
       background: none;
-      border: none;
       color: white;
-      font-size: 36px;
-      font-weight: bold;
     }
 
-    .profile-button {
-      margin-right: 15px;
+    .genre-search-container {
+      padding: 0 15px;
+      padding-bottom: 15px;
+      flex: 1;
+
+      input {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 36px;
+        width: 100%;
+      }
+
+      label {
+        font-weight: bold;
+      }
     }
   }
 
