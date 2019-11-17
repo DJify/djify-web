@@ -6,9 +6,9 @@ import TextInput from '../components/TextInput'
 
 const Nav = () => (
   <nav>
-    <button>
+    <Link to="/account">
       <ProfileIcon size={40} />
-    </button>
+    </Link>
     <div className="genre-search-container">
       <TextInput id="search_genre" label="Search" />
     </div>
@@ -16,6 +16,6 @@ const Nav = () => (
       <AddIcon size={40} />
     </Link>
   </nav>
-);
+)
 
 export default Nav
