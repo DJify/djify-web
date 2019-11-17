@@ -25,7 +25,7 @@ const PartyAnimation = (props) => <div id="party">
       src={require('../resources/img/dj-animations/DJ Booth.gif')}
       alt="booth" />
     <img
-      style={{ width: '100vw', height: '25vw' }}
+      className="party-floor"
       src={require('../resources/img/dj-animations/floor.gif')}
       alt='floor' />
   </div>

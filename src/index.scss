@@ -163,6 +163,7 @@ button:hover {
 
 #party {
   width: inherit;
+  max-height: 1000px;
   display: flex;
   flex: 1;
   background: linear-gradient(0deg,rgba(255,0,150,0.3),rgba(255,0,150,0.3)), url("./resources/img/dj-animations/background.gif");
@@ -199,6 +200,12 @@ button:hover {
   margin-left: -50px;
   margin-top: -20px;
   height: 220px;
+}
+
+.party-floor {
+  width: 100vw;
+  height: 10vw;
+  margin-top: -20px;
 }
 
 #room-controls {
