@@ -54,7 +54,7 @@ const dummyData = [
   },
 ]
 
-const Dashboard = ({}) => (
+const Dashboard = (_) => (
   <section className="dashboard-page">
     <Nav />
     {dummyData.map(data => (
