@@ -41,7 +41,7 @@ class Account extends Component {
   };
 
   _handleToggle = (e) => {
-    this.setState({dj: e.target.value});
+    this.setState({dj: e.target.checked});
   };
 
   render() {
