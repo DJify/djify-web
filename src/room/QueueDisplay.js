@@ -94,6 +94,8 @@ const list = [
 
 class QueueDisplay extends Component {
 
+  static contextType = StateContext;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -116,7 +118,7 @@ class QueueDisplay extends Component {
 
   _onChange = (e) => {
     this.setState({searchTerm: e.target.value});
-    _.debounce(this.search(e.target.value))
+    _.debounce(this.search(e.target.value));
   };
 
   async search(searchQuery) {
@@ -129,10 +131,12 @@ class QueueDisplay extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        access_token: '',
+        access_token: this.context[0].token,
         searchQuery
       })
-    })
+    });
+    let responseJson = await response.json();
+    console.log(response);
   };
 
   render() {

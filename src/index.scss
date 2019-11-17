@@ -96,7 +96,12 @@ hr {
 
 //Login
 .logo {
-  width: 250px;
+  width: auto;
+  height: 25vh;
+  @include md {
+    width: 250px;
+    height: auto;
+  }
 }
 
 .login-hero {
@@ -226,7 +231,7 @@ hr {
   object-fit: contain;
   @include md {
     width: 500px;
-    margin-top: -380px;
+    margin-top: -420px;
   }
 }
 
