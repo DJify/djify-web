@@ -324,7 +324,7 @@ hr {
 }
 
 .queue-container {
-  height: 230px;
+  max-height: 230px;
   overflow-y: scroll;
   padding: 12px;
 }

@@ -108,6 +108,10 @@ class QueueDisplay extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
+  componentDidMount() {
+    console.log(this.context[0]);
+  }
+
   openModal() {
     this.setState({modalIsOpen: true});
   }
