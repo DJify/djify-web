@@ -282,6 +282,18 @@ hr {
   }
 }
 
+.queue-container {
+  height: 230px;
+  overflow-y: scroll;
+  padding: 12px;
+}
+
+.queue-cell {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
 //Utility
 .color-neutral {
   color: $neutral;

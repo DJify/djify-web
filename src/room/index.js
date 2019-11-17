@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PartyAnimation from "./PartyAnimation";
 import SongDisplay from "./SongDisplay";
 import JudgeDisplay from "./JudgeDisplay";
+import QueueDisplay from "./QueueDisplay";
 
 const fakeUser = {
   username: "Khalid",
@@ -35,10 +36,16 @@ class Room extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDj: false,
+      isDj: true,
       isCurrent: false,
+      items: fakeQueue,
     };
+    this.handleOutletOrder = this.handleOutletOrder.bind(this);
   }
+
+  handleOutletOrder = (items) => {
+    this.setState({items})
+  };
 
   render() {
     return(
@@ -49,9 +56,13 @@ class Room extends Component {
             song={fakeSong}
             isDj={this.state.isDj}/>
           {
-            !this.state.isDj &&
-            <JudgeDisplay
-              dj={fakeUser}/>
+            this.state.isDj ?
+              <QueueDisplay
+                handleOrder={this.handleOutletOrder}
+                songs={this.state.items}/>
+              :
+              <JudgeDisplay
+                dj={fakeUser}/>
           }
         </div>
       </div>
