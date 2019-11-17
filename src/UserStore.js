@@ -11,17 +11,21 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case 'updateUser':
-      return {
+      const updatedUser = {
         ...state,
         ...action,
       }
+      localStorage.setItem('user', JSON.stringify(updatedUser))
+      return updatedUser
 
     case 'logIn':
-      return {
+      const loggedInUser = {
         ...state,
         id: action.userId,
         token: action.token,
       }
+      localStorage.setItem('user', JSON.stringify(loggedInUser))
+      return loggedInUser
 
     default:
       return state
@@ -42,13 +46,11 @@ const LocalStorageUpdater = ({ children }) => {
   const [user, dispatch] = useUserState()
 
   React.useEffect(() => {
-    if (user === initialState) {
+    if (JSON.stringify(user) === JSON.stringify(initialState)) {
       dispatch({
         type: 'updateUser',
         ...JSON.parse(localStorage.getItem('user')),
       })
-    } else {
-      localStorage.setItem('user', JSON.stringify(user))
     }
   }, [user, dispatch])
 

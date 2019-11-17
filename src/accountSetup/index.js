@@ -44,11 +44,18 @@ const Account = () => {
 
   React.useEffect(() => {
     const params = new URLSearchParams(location.search)
-    dispatch({
-      type: 'logIn',
-      userId: params.get('spotify_user_id'),
-      token: params.get('access_token'),
-    })
+    const userId = params.get('spotify_user_id')
+    const token = params.get('access_token')
+    const currUser = localStorage.getItem('user')
+
+    if (userId && token) {
+      dispatch({
+        type: 'logIn',
+        userId: params.get('spotify_user_id'),
+        token: params.get('access_token'),
+        ...currUser,
+      })
+    }
   }, [location, dispatch])
 
   const onChange = e => {

@@ -2,10 +2,12 @@ import React from 'react'
 import TextInput from '../components/TextInput'
 import './styles.scss'
 import { useHistory } from 'react-router-dom'
+import { useUserState } from '../UserStore'
 
 const AddRoom = () => {
   const history = useHistory()
   const [open, setOpen] = React.useState(true)
+  const [user] = useUserState()
 
   React.useEffect(() => {
     const bodyEl = document.querySelector('body')
@@ -18,11 +20,25 @@ const AddRoom = () => {
   const createRoom = e => {
     e.preventDefault()
     const formData = new FormData(e.target)
+    const { id, token } = user
     const apiData = {
       name: formData.get('concert_name'),
-      genre: formData.get('concert_genre'),
+      category: formData.get('concert_genre'),
+      spotifyUserId: id,
     }
-    console.log(apiData)
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {
+        access_token: token,
+      },
+      body: apiData,
+    }
+    fetch('http://localhost:8888/concert', options).then(response =>
+      console.log('ooof', response)
+    )
   }
 
   const collapse = () => {
