@@ -5,7 +5,7 @@ const S = {
   Container: styled.section`
     display: flex;
     flex-direction: column;
-    background: linear-gradient(180deg, #000000, #060143);
+    background: var(--bg-gradient);
     align-items: center;
     justify-content: space-around;
     color: white;
