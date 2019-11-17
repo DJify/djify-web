@@ -163,7 +163,6 @@ button:hover {
 
 #party {
   width: inherit;
-  max-height: 1000px;
   display: flex;
   flex: 1;
   background: linear-gradient(0deg,rgba(255,0,150,0.3),rgba(255,0,150,0.3)), url("./resources/img/dj-animations/background.gif");
@@ -178,7 +177,7 @@ button:hover {
   color: white;
   font-size: 20px;
   font-weight: 600;
-  margin-left: -42px;
+  margin-left: -12px;
   padding: 6px;
   background-color: rgba(black, 0.5);
 }
@@ -191,21 +190,15 @@ button:hover {
 }
 
 .party-booth {
-  width: 600px;
-  margin-top: -505px;
+  width: 300px;
+  margin-top: -250px;
   z-index: 1;
 }
 
 .party-dj {
-  margin-left: -50px;
+  margin-left: -20px;
   margin-top: -20px;
-  height: 220px;
-}
-
-.party-floor {
-  width: 100vw;
-  height: 10vw;
-  margin-top: -20px;
+  height: 110px;
 }
 
 #room-controls {
