@@ -5,24 +5,24 @@ import "react-toggle/style.css";
 
 const images = [
   require('../resources/img/avatar/WhiteMale.png'),
-  require('../resources/img/avatar/WhiteFemale.png'),
-  require('../resources/img/avatar/BlackMale.png'),
-  require('../resources/img/avatar/BlackFemale.png'),
-  require('../resources/img/avatar/BrownMale.png'),
-  require('../resources/img/avatar/BrownFemale.png'),
   require('../resources/img/avatar/TanMale.png'),
+  require('../resources/img/avatar/BrownMale.png'),
+  require('../resources/img/avatar/BlackMale.png'),
+  require('../resources/img/avatar/WhiteFemale.png'),
   require('../resources/img/avatar/TanFemale.png'),
+  require('../resources/img/avatar/BrownFemale.png'),
+  require('../resources/img/avatar/BlackFemale.png'),
 ];
 
 const animations = [
   require('../resources/img/dj-animations/DJ White Male.gif'),
-  require('../resources/img/dj-animations/DJ White Female.gif'),
-  require('../resources/img/dj-animations/DJ Black Male.gif'),
-  require('../resources/img/dj-animations/DJ Black Female.gif'),
-  require('../resources/img/dj-animations/DJ Brown Male.gif'),
-  require('../resources/img/dj-animations/DJ Brown Female.gif'),
   require('../resources/img/dj-animations/DJ Tan Male.gif'),
+  require('../resources/img/dj-animations/DJ Brown Male.gif'),
+  require('../resources/img/dj-animations/DJ Black Male.gif'),
+  require('../resources/img/dj-animations/DJ White Female.gif'),
   require('../resources/img/dj-animations/DJ Tan Female.gif'),
+  require('../resources/img/dj-animations/DJ Brown Female.gif'),
+  require('../resources/img/dj-animations/DJ Black Female.gif'),
 ];
 
 class Account extends Component {
