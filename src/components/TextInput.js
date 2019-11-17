@@ -26,7 +26,6 @@ const FloatingLabel = styled.label`
   font-size: 2em;
   cursor: text;
   pointer-events: none;
-  width: 66.6%;
   transform: ${props =>
     props.active ? 'translate3d(0, -30%, 0) scale(0.40)' : 'none'};
 `
@@ -36,7 +35,7 @@ const Input = styled.input`
   margin: 0;
   border: none;
   outline: none;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 900;
   &::placeholder {
     color: #9b9b9b;

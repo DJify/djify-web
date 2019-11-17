@@ -5,6 +5,7 @@ import Dashboard from './dashboard'
 import Account from './accountSetup'
 import AddRoom from './addRoom'
 import Genre from './genre'
+import Room from './room'
 
 function App() {
   const [moreGenreListings, setMoreGenreListings] = React.useState({
@@ -23,6 +24,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/account" component={Account} />
+          <Route path="/room" component={Room} />
           <Route exact path="/dashboard/addRoom">
             <Dashboard />
             <AddRoom />
