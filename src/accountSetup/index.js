@@ -2,8 +2,7 @@ import React from 'react'
 import TextInput from '../components/TextInput'
 import Toggle from 'react-toggle'
 import 'react-toggle/style.css'
-import { Link, useLocation } from 'react-router-dom'
-import { useUserState } from '../UserStore'
+import { Link } from 'react-router-dom'
 
 const images = [
   require('../resources/img/avatar/WhiteMale.png'),
@@ -14,7 +13,7 @@ const images = [
   require('../resources/img/avatar/TanFemale.png'),
   require('../resources/img/avatar/BrownFemale.png'),
   require('../resources/img/avatar/BlackFemale.png'),
-]
+];
 
 const animations = [
   require('../resources/img/dj-animations/DJ White Male.gif'),
@@ -25,36 +24,16 @@ const animations = [
   require('../resources/img/dj-animations/DJ Tan Female.gif'),
   require('../resources/img/dj-animations/DJ Brown Female.gif'),
   require('../resources/img/dj-animations/DJ Black Female.gif'),
-]
+];
 
-const Account = () => {
-  const [user, dispatch] = useUserState()
-  const location = useLocation()
-  const [username, setUsername] = React.useState(user.username)
-  const [dj, setDj] = React.useState(user.wantsToDj)
-  const [chosenAvatarId, setChosenAvatarId] = React.useState(
-    user.chosenAvatarId
-  )
+class Account extends Component {
 
-  React.useEffect(() => {
-    setDj(user.wantsToDj)
-    setUsername(user.username)
-    setChosenAvatarId(user.chosenAvatarId)
-  }, [user])
-
-  React.useEffect(() => {
-    const params = new URLSearchParams(location.search)
-    const userId = params.get('spotify_user_id')
-    const token = params.get('access_token')
-    const currUser = localStorage.getItem('user')
-
-    if (userId && token) {
-      dispatch({
-        type: 'logIn',
-        userId: params.get('spotify_user_id'),
-        token: params.get('access_token'),
-        ...currUser,
-      })
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      selected: 0,
+      dj: true
     }
   }, [location, dispatch])
 
@@ -62,42 +41,54 @@ const Account = () => {
     setUsername(e.target.value)
   }
 
-  const handleToggle = e => {
-    setDj(e.target.checked)
-  }
+  _onChange = (e) => {
+    this.setState({username: e.target.value});
+  };
 
-  const onSubmit = () => {
-    dispatch({
-      type: 'updateUser',
-      username,
-      chosenAvatarId,
-      wantsToDj: dj,
-    })
-  }
+  _handleToggle = (e) => {
+    this.setState({dj: e.target.checked});
+  };
 
-  return (
-    <div id="account" className="center">
-      <TextInput
-        id="account_username"
-        label="Username"
-        onChange={onChange}
-        value={username}
-      />
-      <br />
-      <label>Select an avatar</label>
-      <div className="avatar-row center">
-        {images.map((item, index) => (
-          <img
-            onClick={() => setChosenAvatarId(index)}
-            src={chosenAvatarId === index ? animations[index] : item}
-            style={{
-              height: chosenAvatarId === index ? 120 : 110,
-            }}
-            className="avatar"
-            key={index}
-            alt={index}
-          />
-        ))}
+  render() {
+    return (
+      <div id="account" className="center">
+        <TextInput
+          id="account_username"
+          label="Username"
+          onChange={this._onChange}
+          value={this.state.username}
+        />
+        <br />
+        <label>Select an avatar</label>
+        <div className="avatar-row center">
+          {
+            images.map((item, index) =>
+              <img
+                onClick={() => this.setState({selected: index})}
+                src={this.state.selected === index ? animations[index] : item}
+                style={{
+                  height: this.state.selected === index ? 120 : 110,
+                }}
+                className="avatar"
+                key={index}
+                alt={index} />
+            )
+          }
+        </div>
+        <br />
+        <label className="toggle-wrapper">
+          <span>Do you want to be a DJ?</span>
+          <Toggle
+            defaultChecked={this.state.dj}
+            onChange={this._handleToggle} />
+        </label>
+        <br />
+        {
+          this.state.username.length > 0 &&
+          <button className="btn-block">
+            Start listening
+          </button>
+        }
       </div>
       <br />
       <label className="toggle-wrapper">
@@ -114,4 +105,4 @@ const Account = () => {
   )
 }
 
-export default Account
+export default Account;
