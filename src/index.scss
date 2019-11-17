@@ -167,7 +167,6 @@ hr {
 
 #party {
   width: inherit;
-  max-height: 1000px;
   display: flex;
   flex: 1;
   background: linear-gradient(0deg,rgba(255,0,150,0.3),rgba(255,0,150,0.3)), url("./resources/img/dj-animations/background.gif");
@@ -175,7 +174,7 @@ hr {
   background-position: center center;
   margin-bottom: -20px;
   @include md {
-    min-height: 300px;
+    min-height: 200px;
   }
 }
 
@@ -196,15 +195,26 @@ hr {
 }
 
 .party-booth {
-  width: 600px;
-  margin-top: -505px;
+  width: 300px;
+  margin-top: -260px;
   z-index: 1;
+  object-fit: contain;
+  @include md {
+    width: 500px;
+    margin-top: -380px;
+  }
 }
 
 .party-dj {
-  margin-left: -50px;
+  margin-left: -20px;
   margin-top: -20px;
-  height: 220px;
+  height: 120px;
+  object-fit: contain;
+  @include md {
+    margin-left: -30px;
+    margin-top: -20px;
+    height: 210px;
+  }
 }
 
 #room-controls {
@@ -293,6 +303,11 @@ hr {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+}
+
+.amount-label {
+  font-size: 1.3rem;
+  text-align: center;
 }
 
 //Utility

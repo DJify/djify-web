@@ -10,7 +10,6 @@ class Outlet extends React.Component {
 
   render() {
     const {item, dragHandleProps} = this.props;
-    console.log(this.props);
 
     return (
       <div {...dragHandleProps} className="queue-cell">
@@ -37,6 +36,10 @@ class QueueDisplay extends Component {
                          onMoveEnd={this.props.handleOrder}
                          container={()=>this._list}/>
         </div>
+        <br />
+        <button className="btn-block">
+          Add song
+        </button>
       </div>
     )
   }
