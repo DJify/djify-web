@@ -13,7 +13,7 @@
 
   .background {
     position: absolute;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     top: 0;
     left: 0;
     right: 0;
@@ -40,13 +40,12 @@
     }
 
     select {
-      font-size: 40px;
+      font-size: 30px;
       font-family: inherit;
       font-weight: bold;
       padding: 10px 0;
       width: 100%;
       border: none;
-      border-radius: 0.5em;
       -moz-appearance: none;
       -webkit-appearance: none;
       appearance: none;
@@ -57,7 +56,38 @@
     }
 
     select option {
+      font-weight: normal;
       font-size: 16px;
+    }
+  }
+}
+
+.add-room-page.closing {
+  animation: closing 0.2s ease-out forwards;
+
+  @keyframes closing {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1.1);
+      opacity: 0;
+    }
+  }
+}
+
+.add-room-page.opening {
+  animation: opening 0.2s ease-out forwards;
+
+  @keyframes opening {
+    from {
+      transform: scale(1.1);
+      opacity: 0.2;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
     }
   }
 }

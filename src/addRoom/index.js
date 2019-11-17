@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 
 const AddRoom = () => {
   const history = useHistory()
+  const [open, setOpen] = React.useState(true)
 
   React.useEffect(() => {
     const bodyEl = document.querySelector('body')
@@ -25,11 +26,14 @@ const AddRoom = () => {
   }
 
   const collapse = () => {
-    history.push('/dashboard')
+    setOpen(false)
+    setTimeout(() => {
+      history.push('/dashboard')
+    }, 300)
   }
 
   return (
-    <section className="add-room-page">
+    <section className={`add-room-page ${open ? 'opening' : 'closing'}`}>
       <div className="background" onClick={collapse}></div>
       <form className="card" onSubmit={createRoom}>
         <TextInput
