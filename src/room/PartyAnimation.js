@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const animations = [
   require('../resources/img/dj-animations/DJ White Male.gif'),
@@ -13,6 +13,9 @@ const animations = [
 
 const PartyAnimation = (props) => <div id="party">
   <div className="party-dj-wrapper center">
+    <span className="party-dj-name">
+      DJ {props.user.username}
+    </span>
     <img
       className="party-dj"
       src={animations[props.user.avatar]}
@@ -22,6 +25,7 @@ const PartyAnimation = (props) => <div id="party">
       src={require('../resources/img/dj-animations/DJ Booth.gif')}
       alt="booth" />
     <img
+      style={{ width: '100vw', height: '25vw' }}
       src={require('../resources/img/dj-animations/floor.gif')}
       alt='floor' />
   </div>
