@@ -20,10 +20,11 @@ const Login = () => (
         <button
           className="spotify-btn center"
           onClick={() => {
-            window.location = window.location.href.includes('localhost')
-              ? 'http://localhost:8888/login'
-              : 'https://djify-backend.herokuapp.com/login'
+          window.location = window.location.href.includes('localhost')
+          ? 'http://localhost:8888/login'
+          : 'https://djify-backend.herokuapp.com/login'
           }}
+          style={{ fontWeight: 600 }}
         >
           <img
             style={{ height: 20, width: 20, marginRight: 8 }}
