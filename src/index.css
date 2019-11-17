@@ -41,7 +41,12 @@ hr {
   border-top: solid 1px #e5e5e5; }
 
 .logo {
-  width: 250px; }
+  width: auto;
+  height: 25vh; }
+  @media (min-width: 768px) {
+    .logo {
+      width: 250px;
+      height: auto; } }
 
 .login-hero {
   width: 100%;
@@ -148,7 +153,7 @@ hr {
   @media (min-width: 768px) {
     .party-booth {
       width: 500px;
-      margin-top: -380px; } }
+      margin-top: -420px; } }
 
 .party-dj {
   margin-left: -20px;
@@ -226,7 +231,7 @@ hr {
     background-color: red; }
 
 .queue-container {
-  height: 230px;
+  max-height: 230px;
   overflow-y: scroll;
   padding: 12px; }
 

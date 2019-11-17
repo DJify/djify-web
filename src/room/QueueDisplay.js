@@ -3,6 +3,8 @@ import { IoIosMove } from 'react-icons/io';
 import DraggableList from 'react-draggable-list';
 import Modal from 'react-modal';
 import TextInput from "../components/TextInput";
+import { StateContext } from "../UserStore";
+var _ = require('lodash');
 
 const customStyles = {
   overlay: {
@@ -92,15 +94,22 @@ const list = [
 
 class QueueDisplay extends Component {
 
+  static contextType = StateContext;
+
   constructor(props) {
     super(props);
     this.state = {
       modalIsOpen: false,
       searchTerm: '',
+      items: []
     };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+  }
+
+  componentDidMount() {
+    console.log(this.context[0]);
   }
 
   openModal() {
@@ -112,7 +121,26 @@ class QueueDisplay extends Component {
   }
 
   _onChange = (e) => {
-    this.setState({searchTerm: e.target.value})
+    this.setState({searchTerm: e.target.value});
+    _.debounce(this.search(e.target.value));
+  };
+
+  async search(searchQuery) {
+    let url =  window.location.href.includes('localhost')
+      ? 'http://localhost:8888/search'
+      : 'https://djify-backend.herokuapp.com/search';
+    let response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        access_token: this.context[0].token,
+        searchQuery
+      })
+    });
+    let responseJson = await response.json();
+    console.log(response);
   };
 
   render() {
