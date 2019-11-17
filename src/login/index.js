@@ -12,8 +12,8 @@ const Login = () => (
     </div>
     <div className="login-body">
       <img
-        className="center"
-        src={require('../resources/img/icons/dj-general-icon.png')}
+        className="logo center"
+        src={require('../resources/img/icons/logo-02.png')}
         alt="DJ Silhouette"
       />
       <div style={{ marginTop: 20 }}>

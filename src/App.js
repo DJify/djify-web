@@ -13,11 +13,11 @@ function App() {
     genre: '',
     backingImgURL: '',
     rooms: [],
-  })
+  });
 
   const onShowMoreListings = listings => {
     setMoreGenreListings(listings)
-  }
+  };
 
   const initialUserState = {
     id: '',
