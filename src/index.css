@@ -64,16 +64,39 @@ button:hover {
   margin-top: 10vh;
   background-color: white;
   border-radius: 10px;
-  padding: 6px 12px; }
+  padding: 6px 12px 16px 12px;
+  border: solid 3px #E5E5E5; }
   @media (min-width: 768px) {
     #account {
       width: 580px; } }
 
-.floating-input {
-  font-weight: 900; }
+.avatar-row {
+  max-width: 500px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
+
+.avatar {
+  cursor: pointer; }
+
+.toggle-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.color-neutral {
+  color: #CECECE; }
+
+.color-neutral-light {
+  color: #E5E5E5; }
 
 .center {
   margin-right: auto;
   margin-left: auto; }
+
+.btn-block {
+  display: block;
+  width: 100%; }
 
 /*# sourceMappingURL=index.css.map */

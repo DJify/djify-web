@@ -125,18 +125,46 @@ button:hover {
   margin-top: 10vh;
   background-color: white;
   border-radius: $border-radius;
-  padding: 6px 12px;
+  padding: 6px 12px 16px 12px;
+  border: solid 3px $neutral-light;
   @include md {
     width: 580px;
   }
 }
 
-.floating-input {
-  font-weight: 900;
+.avatar-row {
+  max-width: 500px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.avatar {
+  cursor: pointer;
+}
+
+.toggle-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 //Utility
+.color-neutral {
+  color: $neutral;
+}
+
+.color-neutral-light {
+  color: $neutral-light;
+}
+
 .center {
   margin-right: auto;
   margin-left: auto;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
 }
