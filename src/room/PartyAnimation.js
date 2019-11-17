@@ -13,6 +13,9 @@ const animations = [
 
 const PartyAnimation = (props) => <div id="party">
   <div className="party-dj-wrapper center">
+    <span className="party-dj-name">
+      DJ {props.user.username}
+    </span>
     <img
       className="party-dj"
       src={animations[props.user.avatar]}
