@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
 import { IoIosMove } from 'react-icons/io';
 import DraggableList from 'react-draggable-list';
+import Modal from 'react-modal';
+import TextInput from "../components/TextInput";
+import { StateContext } from "../UserStore";
+
+const customStyles = {
+  overlay: {
+    zIndex: 5,
+    backgroundColor: 'rgba(0,0,0,0.5)'
+  },
+  content : {
+    zIndex: 6,
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+};
 
 class Outlet extends React.Component {
 
@@ -10,7 +29,6 @@ class Outlet extends React.Component {
 
   render() {
     const {item, dragHandleProps} = this.props;
-    console.log(this.props);
 
     return (
       <div {...dragHandleProps} className="queue-cell">
@@ -26,6 +44,58 @@ class Outlet extends React.Component {
 }
 
 class QueueDisplay extends Component {
+
+  static contextType = StateContext;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalIsOpen: false,
+      searchTerm: '',
+      items: []
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.search = this.search.bind(this);
+  }
+
+  componentDidMount() {
+    console.log(this.context[0]);
+  }
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
+  _onChange = (e) => {
+    this.setState({searchTerm: e.target.value});
+    this.search(e.target.value);
+  };
+
+  async search(searchQuery) {
+    let url =  window.location.href.includes('localhost')
+      ? 'http://localhost:8888/search'
+      : 'https://djify-backend.herokuapp.com/search';
+    let response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: JSON.stringify({
+        access_token: "BQAwkXJjg8ApS7QIQO5XrlG3fe0hDR0OgNyOdzaPa_EpxvtgkUaFSs_y0POAwgkJJZwhT1vbKRxvpUzC0CSAYkYV3To7Z4p84bS_kAmCF66afPfXE9V9t69IMlxadjgklGIQWyImVGtWGdWiT9cN0IXHcErnoLvPap2ayAYrNFvlHqf44ZAPYo5JqZoPFf3371edgJcBv9bfi4ZbLKJx?spotify_user_id=7229nfdot10lcxq028prmid1j",
+        searchQuery
+      })
+    });
+    let responseJson = await response.json();
+    console.log(response);
+    console.log(responseJson);
+  };
+
   render() {
     return(
       <div>
@@ -37,6 +107,40 @@ class QueueDisplay extends Component {
                          onMoveEnd={this.props.handleOrder}
                          container={()=>this._list}/>
         </div>
+        <br />
+        <button
+          onClick={this.openModal}
+          className="btn-block">
+          Add song
+        </button>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          contentLabel="Search song"
+          style={customStyles}
+        >
+          <TextInput
+            id="song_search"
+            label="Search Songs"
+            onChange={this._onChange}
+            value={this.state.searchTerm}
+          />
+          <br />
+          <div className="list">
+            {
+              this.state.items.length > 0 && this.state.items.map((item, index) =>
+                <div className="search-result">
+                  <b>{item.song}</b>
+                  <br />
+                  {item.artist}
+                  <div className="color-neutral">
+                    {item.album}
+                  </div>
+                </div>
+              )
+            }
+          </div>
+        </Modal>
       </div>
     )
   }

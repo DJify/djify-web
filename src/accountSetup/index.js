@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import TextInput from '../components/TextInput';
-import Toggle from 'react-toggle';
-import "react-toggle/style.css";
+import React from 'react'
+import TextInput from '../components/TextInput'
+import Toggle from 'react-toggle'
+import 'react-toggle/style.css'
+import { Link } from 'react-router-dom'
 
 const images = [
   require('../resources/img/avatar/WhiteMale.png'),
@@ -34,6 +35,10 @@ class Account extends Component {
       selected: 0,
       dj: true
     }
+  }, [location, dispatch])
+
+  const onChange = e => {
+    setUsername(e.target.value)
   }
 
   _onChange = (e) => {
@@ -85,8 +90,19 @@ class Account extends Component {
           </button>
         }
       </div>
-    )
-  }
+      <br />
+      <label className="toggle-wrapper">
+        <span>Do you want to be a DJ?</span>
+        <Toggle checked={dj} onChange={handleToggle} />
+      </label>
+      <br />
+      {username.length > 0 && (
+        <Link to="/dashboard" className="btn-block" onClick={onSubmit}>
+          Start listening
+        </Link>
+      )}
+    </div>
+  )
 }
 
 export default Account;

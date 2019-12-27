@@ -89,6 +89,14 @@ hr {
 }
 
 //Login
+.logo {
+  width: auto;
+  height: 25vh;
+  @include md {
+    width: 250px;
+    height: auto;
+  }
+}
 
 .login-hero {
   width: 100%;
@@ -165,16 +173,32 @@ hr {
   height: 100vh;
 }
 
+.float-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.link-btn {
+  padding: 0;
+}
+
 #party {
   width: inherit;
   display: flex;
   flex: 1;
-  background: linear-gradient(0deg,rgba(255,0,150,0.3),rgba(255,0,150,0.3)), url("./resources/img/dj-animations/background.gif");
+  background: linear-gradient(
+      0deg,
+      rgba(255, 0, 150, 0.3),
+      rgba(255, 0, 150, 0.3)
+    ),
+    url('./resources/img/dj-animations/background.gif');
   background-size: cover;
   background-position: center center;
   margin-bottom: -20px;
   @include md {
-    min-height: 300px;
+    min-height: 100px;
+    max-height: 600px;
   }
 }
 
@@ -195,21 +219,33 @@ hr {
 }
 
 .party-booth {
-  width: 600px;
-  margin-top: -505px;
+  width: 300px;
+  margin-top: -260px;
   z-index: 1;
+  object-fit: contain;
+  @include md {
+    width: 500px;
+    margin-top: -420px;
+  }
 }
 
 .party-dj {
-  margin-left: -50px;
+  margin-left: -20px;
   margin-top: -20px;
-  height: 220px;
+  height: 120px;
+  object-fit: contain;
+  @include md {
+    margin-left: -30px;
+    margin-top: -20px;
+    height: 210px;
+  }
 }
 
 #room-controls {
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  flex: 0;
+  flex: 1;
   background-color: white;
   padding: 6px 12px 16px 12px;
   width: 100%;
@@ -283,7 +319,7 @@ hr {
 }
 
 .queue-container {
-  height: 230px;
+  max-height: 230px;
   overflow-y: scroll;
   padding: 12px;
 }
@@ -292,6 +328,31 @@ hr {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+}
+
+.amount-label {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.list {
+  max-height: 500px;
+  overflow-y: scroll;
+  width: 100%;
+  @include lg {
+    width: 400px;
+  }
+}
+
+.search-result {
+  width: 100%;
+  padding: 6px 0;
+  border-top: solid 1px $neutral-light;
+  cursor: pointer;
+  font-size: 1.5rem;
+  &:hover {
+    background-color: $neutral-light;
+  }
 }
 
 //Utility
@@ -309,6 +370,7 @@ hr {
 }
 
 .btn-block {
+  text-align: center;
   display: block;
   width: 100%;
 }
